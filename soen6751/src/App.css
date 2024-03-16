@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.visualizationcontainer{
+  
+}
+
+.Landing{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.imgcontainer{
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.imgcontainer img{
+  width: 100%;
+}
+
+.controls{
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
