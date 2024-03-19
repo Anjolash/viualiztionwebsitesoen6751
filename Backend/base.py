@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 import json
-from Model import train
+from Model import getPieChartValues
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
@@ -17,7 +17,7 @@ def get_image(filename):
 
 @app.route('/runtrain')
 def run_train():
-    categories, values = train()
+    categories, values = getPieChartValues()
     values = [int(x) for x in values]
-    jsonstring = '{"labels": ' + json.dumps(categories) + ', "datasets": [ {"data": ' + json.dumps(values) +'} ] }'
+    jsonstring = '{"labels": ' + json.dumps(categories) + ', "datasets": [ {"label": "# of Predictions", "backgroundColor": ["rgba(75, 192, 192, 0.9)", "rgba(255, 99, 132, 0.9)", "rgba(255, 99, 132, 0.9)"], "data": ' + json.dumps(values) +'} ] }'
     return jsonstring

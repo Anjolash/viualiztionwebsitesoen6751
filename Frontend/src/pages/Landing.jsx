@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 
 import PropTypes from 'prop-types';
-import ImageComponent from './ImageComponent';
 import BarGraph from './BarGraph';
+import PieChart from './PieChart';
 
-export default function Landing({ totalVisualizations = 3 }) {
+export default function Landing({ totalVisualizations = 2 }) {
     const [current, setCurrent] = useState(0);
     const [data, setData] = useState(null);
 
@@ -24,9 +24,7 @@ export default function Landing({ totalVisualizations = 3 }) {
     return (
         data ? 
         <div className='Landing'>
-            <BarGraph
-                data = {data}
-            />
+            { current == 0 ? <PieChart data = {data}/> : <BarGraph data={data}/> }
             <p>{data.Q1}</p>
             <p>{data.Q2}</p>
             <div className="controls">
