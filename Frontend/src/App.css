@@ -36,3 +36,37 @@
   margin: 0 auto;
   justify-content: space-between;
 }
+
+.mt-4{
+  margin-top: 40px;
+}
+
+.options{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+label{
+  cursor: pointer;
+  border: solid 1px blue;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: ghostwhite;
+  width: 100%;
+  max-width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+label:hover{
+  background-color: blue;
+  color: ghostwhite;
+}
+
