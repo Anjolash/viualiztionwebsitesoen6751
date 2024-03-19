@@ -4,9 +4,9 @@ import Landing from './pages/Landing'
 
 function App() {
   return (
-    <>
-      <Landing totalVisualizations={3} />
-    </>
+    <body>
+      <Landing totalVisualizations={2} />
+    </body>
   )
 }
 

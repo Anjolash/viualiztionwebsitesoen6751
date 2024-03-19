@@ -9,6 +9,16 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 
+def getPieChartValues():
+    y_test, y_pred = train()
+    conf_matrix = confusion_matrix(y_test, y_pred)
+
+    # Extracting TP, TN, FP, FN
+    TN, FP, FN, TP = conf_matrix.ravel()
+    categories = [ 'True Positive + True Negative','False Negative','False Positive',]
+    values = [TP+TN, FN, FP]
+    return categories, values
+    
 def train():
     df = pd.read_csv("assets/diabetes.csv")
     df = df.drop_duplicates() #dropping all the duplicate values in the dataset.
@@ -35,14 +45,4 @@ def train():
     y_pred = classifier.predict(X_test)
     correlation_matrix = df.corr()['Outcome'].drop('Outcome')
     features = correlation_matrix.index
-    #sizes = (correlation_matrix.abs()*1000).values
-
-    conf_matrix = confusion_matrix(y_test, y_pred)
-
-    # Extracting TP, TN, FP, FN
-    TN, FP, FN, TP = conf_matrix.ravel()
-    categories = [ 'False Negative', 'True Positive + True Negative', 'False Positive',]
-    values = [FN, TP+TN, FP]
-    return categories, values
-    
-    
+    return y_test, y_pred
