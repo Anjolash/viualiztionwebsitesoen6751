@@ -70,3 +70,19 @@ label:hover{
   color: ghostwhite;
 }
 
+.textbox input[type="textbox"] {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  height: 200px;
+}
+
+.textbox input[type="textbox"]:focus {
+  border-color: #007bff;
+  outline: none;
+}

@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import BarGraph from './BarGraph';
 import PieChart from './PieChart';
@@ -8,118 +7,145 @@ export default function Landing({ totalVisualizations = 2 }) {
     const [current, setCurrent] = useState(0);
     const [data, setData] = useState(null);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption2, setSelectedOption2] = useState(null);
+    const [confusingResponse, setConfusingResponse] = useState('');
+    const [modelUncertaintyResponse, setModelUncertaintyResponse] = useState('');
     const [responses, setResponses] = useState([]);
+    const [tempConfusingResponse, setTempConfusingResponse] = useState('');
+    const [tempModelUncertaintyResponse, setTempModelUncertaintyResponse] = useState('');
 
     const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value)
+        setSelectedOption(event.target.value);
         const selectedResponse = event.target.value;
         const responseIndex = current;
 
-        setResponses(prevResponses => {
+        setResponses((prevResponses) => {
             const updatedResponses = [...prevResponses];
             updatedResponses[responseIndex] = selectedResponse;
-            return updatedResponses
-        })
-    }
+            return updatedResponses;
+        });
+    };
+
+    const handleOptionChange2 = (event) => {
+        setSelectedOption2(event.target.value);
+        const selectedResponse = event.target.value;
+        const responseIndex = current;
+
+        setResponses((prevResponses) => {
+            const updatedResponses = [...prevResponses];
+            updatedResponses[responseIndex] = selectedResponse;
+            return updatedResponses;
+        });
+    };
+
+    const handleConfusingResponseChange = (event) => {
+        setTempConfusingResponse(event.target.value);
+    };
+
+    const handleModelUncertaintyResponseChange = (event) => {
+        setTempModelUncertaintyResponse(event.target.value);
+    };
 
     const handleNext = () => {
         setCurrent((prev) => prev + 1);
-    }
+        setConfusingResponse(tempConfusingResponse);
+        setModelUncertaintyResponse(tempModelUncertaintyResponse);
+        setTempConfusingResponse('');
+        setTempModelUncertaintyResponse('');
+        setSelectedOption(null);
+        setSelectedOption2(null);
+    };
 
     const handleBack = () => {
         setCurrent((prev) => prev - 1);
-    }
+        setConfusingResponse('');
+        setModelUncertaintyResponse('');
+        setTempConfusingResponse('');
+        setTempModelUncertaintyResponse('');
+        setSelectedOption(null);
+        setSelectedOption2(null);
+    };
 
     const exportToCSV = () => {
-        const csvContent = responses.map((response,index) => {
-            return `"Visualization ${index + 1}", ${response}`;
-        }).join('\n')
+        const headers = ['Visualization', 'Response', 'Confusing Response', 'Model Uncertainty Response'];
+        const headerRow = headers.join(',');
 
-        console.log(csvContent)
-    }
+        const dataRows = responses.map((response, index) => {
+            return `"Visualization ${index + 1}", ${response || ''}, ${confusingResponse || ''}, ${modelUncertaintyResponse || ''}`;
+        });
+
+        const csvContent = [headerRow, ...dataRows].join('\n');
+
+        console.log(csvContent);
+    };
+
+    const handleSubmit = () => {
+        exportToCSV();
+    };
 
     useEffect(() => {
         fetch('http://127.0.0.1:5000/runtrain')
-            .then(response => response.json())
-            .then(json => {setData(json); console.log(json);})
-            .catch(error => console.error(error));
+            .then((response) => response.json())
+            .then((json) => {
+                setData(json);
+                console.log(json);
+                setResponses(new Array(totalVisualizations).fill(undefined));
+            })
+            .catch((error) => console.error(error));
     }, []);
-    return (
-        data ? 
-        <div className='Landing'>
-            { current == 0 ? <PieChart data = {data}/> : <BarGraph data={data}/> }
-            <p className='mt-4'>Did this visualization appear confusing to you? </p>
+
+    return data ? (
+        <div className="Landing">
+            {current === 0 ? <PieChart data={data} /> : <BarGraph data={data} />}
+            <p className='mt-4'>Did the visualization appear confusing to you? </p>
+            <div className="textbox">
+                <input type="textbox" onChange={handleConfusingResponseChange} value={tempConfusingResponse} />
+            </div>
+            <p className="mt-4">Does the image improve peoples understanding of uncertainty, helping them to make better decisions? </p>
             <div className="options">
-                <label>
-                    <input 
-                        type="radio"
-                        value="0"
-                        checked={selectedOption === '0'}
-                        onChange={handleOptionChange}
-                    />
-                    0
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        value="1"
-                        checked={selectedOption === '1'}
-                        onChange={handleOptionChange}
-                    />
-                    1
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        value="2"
-                        checked={selectedOption === '2'}
-                        onChange={handleOptionChange}
-                    />
-                    2
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        value="3"
-                        checked={selectedOption === '3'}
-                        onChange={handleOptionChange}
-                    />
-                    3
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        value="4"
-                        checked={selectedOption === '4'}
-                        onChange={handleOptionChange}
-                    />
-                    4
-                </label>
-                <label>
-                    <input 
-                        type="radio"
-                        value="5"
-                        checked={selectedOption === '5'}
-                        onChange={handleOptionChange}
-                    />
-                    5
-                </label>
-            </div>    
-            <p>{data.Q2}</p>
+                {[0, 1, 2, 3, 4, 5].map((value) => (
+                    <label key={value}>
+                        <input 
+                            type="radio"
+                            value={value}
+                            checked={selectedOption === value.toString()}
+                            onChange={handleOptionChange} />
+                        {value}
+                    </label>
+                ))}
+            </div>
+            <p className="mt-4">Does the image effectively communicate the uncertainty in the model to you? </p>
+            <div className="options">
+                {[0, 1, 2, 3, 4, 5].map((value) => (
+                    <label key={value}>
+                        <input
+                            type="radio"
+                            value={value}
+                            checked={selectedOption2 === value.toString()}
+                            onChange={handleOptionChange2}
+                        />
+                        {value}
+                    </label>
+                ))}
+            </div>
             <div className="controls">
                 <button onClick={handleBack} disabled={current === 0}>
                     Back
                 </button>
-                <button onClick={handleNext} disabled={current === totalVisualizations - 1}>
-                    Next
-                </button>
-            </div>  
+                {current === totalVisualizations - 1 ? (
+                    <button onClick={handleSubmit} >
+                        Submit
+                    </button>
+                ) : (
+                    <button onClick={handleNext}>Next</button>
+                )}
+            </div>
         </div>
-        : 
+    ) : (
         <h1>LOADING.....</h1>
-    )
+    );
 }
 
 Landing.propTypes = {
-    totalVisualizations : PropTypes.number.isRequired,
+    totalVisualizations: PropTypes.number.isRequired,
 };
