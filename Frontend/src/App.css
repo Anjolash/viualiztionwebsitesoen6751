@@ -11,8 +11,36 @@
   flex-direction: column;
   text-align: center;
   margin-top: 1%;
+  margin-bottom: 1%;
 }
+.button.submit{
+  background-color: #4BC0C0;
+}
+.button.submit:hover{
+  background-color: white;
+}
+.outercircle {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: #202020;
+  border-radius: 50%;
+}
+.innercircle {
+  display: flex;
+  margin: auto auto;
+  background-color: #4BC0C0;
+  border-radius: 50%;
+}
+.innercircle:hover {
 
+  background-color: #4BA0A0;
+}
+.textcircle {
+  margin: auto;
+  color: white;
+}
 .PieChart{
   width: 500px;
   height: 500px;
@@ -36,7 +64,11 @@
   margin: 0 auto;
   justify-content: space-between;
 }
-
+.Landing.Welcome{
+  margin: 0 auto;
+  margin-top: 10%;
+  max-width: 600px;
+}
 .mt-4{
   margin-top: 40px;
 }
@@ -53,7 +85,7 @@
 
 label{
   cursor: pointer;
-  border: solid 1px blue;
+  border: solid 1px #4BC0C0;
   padding: 10px 20px;
   border-radius: 20px;
   background-color: ghostwhite;
@@ -66,7 +98,7 @@ label{
 }
 
 label:hover{
-  background-color: blue;
+  background-color: #4BC0C0;
   color: ghostwhite;
 }
 

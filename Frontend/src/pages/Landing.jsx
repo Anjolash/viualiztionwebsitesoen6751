@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import BarGraph from './BarGraph';
 import PieChart from './PieChart';
+import CircleGraph from './CircleGraph';
 
 export default function Landing({ totalVisualizations = 2 }) {
     const [current, setCurrent] = useState(0);
@@ -96,7 +97,13 @@ export default function Landing({ totalVisualizations = 2 }) {
 
     return data ? (
         <div className="Landing">
-            {current === 0 ? <PieChart data={data} /> : <BarGraph data={data} />}
+            { 
+                {
+                    0: <PieChart data={data} />,
+                    1: <BarGraph data={data} />,
+                    2: <CircleGraph data={data} />
+                }[current]
+            } 
             <p className='mt-4'>Did the visualization appear confusing to you? </p>
             <div className="textbox">
                 <input type="textbox" onChange={handleConfusingResponseChange} value={tempConfusingResponse} />
@@ -133,7 +140,7 @@ export default function Landing({ totalVisualizations = 2 }) {
                     Back
                 </button>
                 {current === totalVisualizations - 1 ? (
-                    <button onClick={handleSubmit} >
+                    <button className='button submit' onClick={handleSubmit} >
                         Submit
                     </button>
                 ) : (
