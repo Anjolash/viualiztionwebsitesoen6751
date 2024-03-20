@@ -62,22 +62,23 @@ export default function Landing({ totalVisualizations = 2 }) {
         setModelUncertaintyResponse('');
         setTempConfusingResponse('');
         setTempModelUncertaintyResponse('');
-        setSelectedOption(null);
-        setSelectedOption2(null);
+        setSelectedOption('');
+        setSelectedOption2('');
     };
 
     const exportToCSV = () => {
         const headers = ['Visualization', 'Response', 'Confusing Response', 'Model Uncertainty Response'];
         const headerRow = headers.join(',');
-
+        
         const dataRows = responses.map((response, index) => {
-            return `"Visualization ${index + 1}", ${response || ''}, ${confusingResponse || ''}, ${modelUncertaintyResponse || ''}`;
+        return `"Visualization ${index + 1}", ${response || ''}, ${index === current ? tempConfusingResponse || '' : ''}, ${index === current ? selectedOption || '' : ''}, ${index === current ? selectedOption2 || '' : ''}`;
         });
-
+        
         const csvContent = [headerRow, ...dataRows].join('\n');
-
+        
         console.log(csvContent);
-    };
+        };
+        
 
     const handleSubmit = () => {
         exportToCSV();
