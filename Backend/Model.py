@@ -46,3 +46,24 @@ def train():
     correlation_matrix = df.corr()['Outcome'].drop('Outcome')
     features = correlation_matrix.index
     return y_test, y_pred
+
+def prepare3DBarData(X, Y, Z, dx, dy, dz, height=600, xlabel="X", ylabel="Y", zlabel="Z", initialCamera=None):
+    options = {
+        "width": "100%",
+        "style": "bar",
+        "showPerspective": True,
+        "showGrid": True,
+        "showShadow": False,
+        "keepAspectRatio": True,
+        "verticalRatio": 1.0,
+        "height": str(height) + "px"
+    }
+
+    if initialCamera:
+        options["cameraPosition"] = initialCamera
+
+    data = []
+    for x, y, z, dxi, dyi, dzi in zip(X, Y, Z, dx, dy, dz):
+        data.append({"x": x + dxi / 2, "y": y + dyi / 2, "z": z + dzi})
+
+    return {"data": data, "options": options}
