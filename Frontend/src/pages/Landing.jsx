@@ -98,13 +98,14 @@ export default function Landing({ totalVisualizations = 2 }) {
 
     return data ? (
         <div className="Landing">
-            { 
-                {
-                    0: <PieChart data={data} />,
-                    1: <BarGraph data={data} />,
-                    2: <CircleGraph data={data} />
-                }[current]
-            } 
+            <div className="charts">
+                <PieChart data={data} />
+                <CircleGraph data={data} />
+                <BarGraph data={data} />
+                
+            </div>
+            
+            
             <p className='mt-4'>Did the visualization appear confusing to you? </p>
             <div className="textbox">
                 <input type="textbox" onChange={handleConfusingResponseChange} value={tempConfusingResponse} />

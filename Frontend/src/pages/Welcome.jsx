@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import logo from '../assets/concordia-logo.webp';
 import Landing from './Landing';
 
@@ -15,7 +16,10 @@ export default function Welcome() {
             <h3>Survey for Different Uncertainity Visualization Techniques</h3>
             <br/>
             <br/>
-            <button onClick={() => setCurrent(1)}>Start Survey</button>
+            <Link to = "/NumMatrix">
+                <button onClick={() => setCurrent(1)}>Start Survey</button>
+            </Link>
+            
         </div>
     ) :
     <Landing  totalVisualizations={3}/>

@@ -6,10 +6,10 @@ const CircleGraph = ({ data }) => {
 
   return (
     <div>
-        <h2>Circle Graph</h2>
-        <div class="outercircle">
-            <div class="innercircle" style={{width: 500*accuracy, height: 500*accuracy}}>
-                <p class="textcircle">Accuracy: {(100*accuracy).toPrecision(4)}%</p>
+        <h2 className='mt-4'>Circle Graph</h2>
+        <div className="outercircle">
+            <div className="innercircle" style={{width: 400*accuracy, height: 400*accuracy}}>
+                <p className="textcircle">Accuracy: {(100*accuracy).toPrecision(4)}%</p>
             </div>
         </div>
     </div>
