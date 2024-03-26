@@ -13,7 +13,7 @@ export default function Welcome() {
             <br/>
             <h2>Team P</h2>
             <br/>
-            <h3>Survey for Different Uncertainity Visualization Techniques</h3>
+            <h3>Different Uncertainity Visualization Techniques</h3>
             <br/>
             <br/>
             <Link to = "/NumMatrix">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import BarGraph from './BarGraph';
 import PieChart from './PieChart';
@@ -104,50 +105,18 @@ export default function Landing({ totalVisualizations = 2 }) {
                 <BarGraph data={data} />
                 
             </div>
-            
-            
-            <p className='mt-4'>Did the visualization appear confusing to you? </p>
             <div className="textbox">
                 <input type="textbox" onChange={handleConfusingResponseChange} value={tempConfusingResponse} />
             </div>
-            <p className="mt-4">Does the image improve peoples understanding of uncertainty, helping them to make better decisions? </p>
-            <div className="options">
-                {[0, 1, 2, 3, 4, 5].map((value) => (
-                    <label key={value}>
-                        <input 
-                            type="radio"
-                            value={value}
-                            checked={selectedOption === value.toString()}
-                            onChange={handleOptionChange} />
-                        {value}
-                    </label>
-                ))}
-            </div>
-            <p className="mt-4">Does the image effectively communicate the uncertainty in the model to you? </p>
-            <div className="options">
-                {[0, 1, 2, 3, 4, 5].map((value) => (
-                    <label key={value}>
-                        <input
-                            type="radio"
-                            value={value}
-                            checked={selectedOption2 === value.toString()}
-                            onChange={handleOptionChange2}
-                        />
-                        {value}
-                    </label>
-                ))}
-            </div>
-            <div className="controls">
-                <button onClick={handleBack} disabled={current === 0}>
+            <div className="controls mt-4">
+                <Link to="/NumMatrix">
+                <button>
                     Back
                 </button>
-                {current === totalVisualizations - 1 ? (
-                    <button className='button submit' onClick={handleSubmit} >
-                        Submit
-                    </button>
-                ) : (
-                    <button onClick={handleNext}>Next</button>
-                )}
+                </Link>
+                <Link to="">
+                <   button>Next</button>
+                </Link>  
             </div>
         </div>
     ) : (
