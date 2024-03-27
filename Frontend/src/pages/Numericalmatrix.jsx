@@ -24,7 +24,12 @@ export default function Numericalmatrix() {
                                 Show simpler visualization
                             </button>
                         </Link>
-                    
+                        <button> 3D </button>
+                        <Link to = "/Interactive">
+                            <button >
+                                Interactive Visualisation
+                            </button>
+                        </Link>
                 </div>
         </div>
         </div>

@@ -8,7 +8,7 @@ const CircleGraph = ({ data }) => {
     <div>
         <h2 className='mt-4'>Circle Graph</h2>
         <div className="outercircle">
-            <div className="innercircle" style={{width: 400*accuracy, height: 400*accuracy}}>
+            <div className="innercircle" style={{width: 600*accuracy, height: 600*accuracy}}>
                 <p className="textcircle">Accuracy: {(100*accuracy).toPrecision(4)}%</p>
             </div>
         </div>
