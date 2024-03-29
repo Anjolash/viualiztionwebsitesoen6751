@@ -16,7 +16,7 @@ export default function Welcome() {
             <h3>Different Uncertainity Visualization Techniques</h3>
             <br/>
             <br/>
-            <Link to = "/NumMatrix">
+            <Link to = "/DataForm">
                 <button onClick={() => setCurrent(1)}>Start Survey</button>
             </Link>
             
