@@ -42,7 +42,7 @@ export default function Interactive() {
     return (
         <div className='Landing'>
             <h1>Visualizing Interactively</h1>
-            <div className="card">
+            <div className="card-notbootstrap">
                 <div className="card-left">
                     {selectedComponent}
                 </div>

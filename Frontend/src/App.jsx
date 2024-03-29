@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import { Routes } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Landing from './pages/Landing'
 import Welcome from './pages/Welcome'
 import Numericalmatrix from './pages/Numericalmatrix';
 import Interactive from './pages/Interactive';
+import InputDataForm from './pages/InputDataForm';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="/NumMatrix" element = {<Numericalmatrix />} />
           <Route path="/2DVis" element = {<Landing />} />
           <Route path="/Interactive" element = {<Interactive />} />
+          <Route path='/DataForm' element = {<InputDataForm /> } />
       </Routes>
     </Router>
   )
