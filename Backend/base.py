@@ -39,8 +39,8 @@ def prediction_outcome():
         bmi = float(data['bmi'])
         DiabetesPedigreeFunction = float(data['diabetesPedigreeFunction'])
         Age = float(data['age'])
-        Outcome = float(data['pregnancies'])
-        X_input = np.array([[glucose, blood_pressure, skin_thickness, insulin, bmi, DiabetesPedigreeFunction, Age, Outcome]])
+        pregnancies = float(data['pregnancies'])
+        X_input = np.array([[pregnancies,glucose,blood_pressure,skin_thickness,insulin,bmi,DiabetesPedigreeFunction,Age]])
 
         classification = classifier.predict(X_input)
         return str(classification)  # Convert classification to string for response
