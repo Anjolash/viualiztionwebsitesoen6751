@@ -25,22 +25,24 @@ def run_train():
     jsonstring = '{"labels": ' + json.dumps(categories) + ', "datasets": [ {"label": "# of Predictions", "backgroundColor": ["rgba(75, 192, 192, 0.9)", "rgba(255, 99, 132, 0.9)", "rgba(255, 99, 132, 0.9)"], "data": ' + json.dumps(values) +'} ] }'
     return jsonstring
 
-@app.route('/predict')
+@app.route('/predict', methods=['POST'])
 def prediction_outcome():
-    _, _, classifier = train()
-    data = request.json
-    
-    # Extract required features
-    glucose = data['Glucose']
-    blood_pressure = data['BloodPressure']
-    skin_thickness = data['SkinThickness']
-    insulin = data['Insulin']
-    bmi = data['BMI']
-    DiabetesPedigreeFunction = data['DiabetesPedigreeFunction']
-    Age = data['Age']
-    Outcome = data['Outcome']
-    X_input = np.array([[glucose, blood_pressure, skin_thickness, insulin, bmi, DiabetesPedigreeFunction, Age, Outcome]])
+    try:
+        _, _, classifier = train()
+        data = request.json
+        
+        # Extract required features
+        glucose = float(data['glucose'])
+        blood_pressure = float(data['bloodPressure'])
+        skin_thickness = float(data['skinThickness'])
+        insulin = float(data['insulin'])
+        bmi = float(data['bmi'])
+        DiabetesPedigreeFunction = float(data['diabetesPedigreeFunction'])
+        Age = float(data['age'])
+        Outcome = float(data['pregnancies'])
+        X_input = np.array([[glucose, blood_pressure, skin_thickness, insulin, bmi, DiabetesPedigreeFunction, Age, Outcome]])
 
-    classification = classifier.predict(X_input)
-
-    return classification
+        classification = classifier.predict(X_input)
+        return str(classification)  # Convert classification to string for response
+    except Exception as e:
+        return str(e), 500  # Return error message and HTTP status code 500 (Internal Server Error)
