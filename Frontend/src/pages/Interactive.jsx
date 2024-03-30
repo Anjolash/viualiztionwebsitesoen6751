@@ -47,28 +47,49 @@ export default function Interactive() {
                     {selectedComponent}
                 </div>
                 <div className="card-right">
-                    <h3>Please select the features:</h3>
                     <br />
-                    <div>
-                        <input type="checkbox" id="checkbox1" />
-                        <label htmlFor="checkbox1">Feature 1</label>
+                    <br />
+                    <br />
+                    <h3>Please select the features:</h3>
+                    <div className="checkbox-row">
+                        <div>
+                            <input type="checkbox" id="checkbox1" />
+                            <label htmlFor="checkbox1">Feature 1</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkbox2" />
+                            <label htmlFor="checkbox2">Feature 2</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="checkbox2" />
-                        <label htmlFor="checkbox2">Feature 2</label>
+                    <div className="checkbox-row">
+                        <div>
+                            <input type="checkbox" id="checkbox3" />
+                            <label htmlFor="checkbox3">Feature 3</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkbox4" />
+                            <label htmlFor="checkbox4">Feature 4</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="checkbox3" />
-                        <label htmlFor="checkbox3">Feature 3</label>
+                    <div className="checkbox-row">
+                        <div>
+                            <input type="checkbox" id="checkbox5" />
+                            <label htmlFor="checkbox5">Feature 5</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="checkbox6" />
+                            <label htmlFor="checkbox6">Feature 6</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="checkbox4" />
-                        <label htmlFor="checkbox4">Feature 4</label>
+                    <div className="checkbox-row">    
+                        <div>
+                            <input type="checkbox" id="checkbox7" />
+                            <label htmlFor="checkbox7">Feature 7</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="checkbox5" />
-                        <label htmlFor="checkbox5">Feature 5</label>
-                    </div>
+                    <button className='button update'>Update Graph</button>
+                    <br />
+                    <br />
                     <br />
                     <br />
                     <h3>Type of Visualization Graph</h3>
@@ -81,6 +102,9 @@ export default function Interactive() {
                 </div>
             </div>
             <div className="next">
+                <Link to="/NumMatrix">
+                    <button>Back</button>
+                </Link>
                 <button>Show result</button>
             </div>
         </div>

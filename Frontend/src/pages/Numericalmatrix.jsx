@@ -17,21 +17,21 @@ export default function Numericalmatrix() {
                 
                 
                 
-                <div className="next">
-                    
-                        <Link to = "/2DVis">
-                            <button >
-                                Show simpler visualization
-                            </button>
-                        </Link>
-                        <button> 3D </button>
-                        <Link to = "/Interactive">
-                            <button >
-                                Interactive Visualisation
-                            </button>
-                        </Link>
-                </div>
         </div>
+            <div className="next">
+                
+                    <Link to = "/2DVis">
+                        <button >
+                            Show simpler visualization
+                        </button>
+                    </Link>
+                    <button> 3D </button>
+                    <Link to = "/Interactive">
+                        <button >
+                            Interactive Visualisation
+                        </button>
+                    </Link>
+            </div>
         </div>
     )
 }
