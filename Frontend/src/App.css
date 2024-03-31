@@ -91,11 +91,6 @@
   margin: 0 auto;
 }
 
-label{
-  
-  
-}
-
 label:hover{
   background-color: #4BC0C0;
   color: ghostwhite;
@@ -129,14 +124,21 @@ label:hover{
 }
 
 .next{
-  width: 100%;
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
   margin-top: 20px;
+  justify-content: space-around;
+}
+.update{
+  margin-top: 40px;
+  background-color: #85e0ff;
 }
 
 .card-notbootstrap {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 60px 100px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -176,11 +178,18 @@ label:hover{
   background: #4BC0C0; /* Change the color to your desired color */
   color: white;
 }
+.checkbox-row {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
 .card-right input[type="checkbox"] {
   display: inline-block;
   vertical-align: middle;
   margin-right: -15px; /* Adjust the spacing between checkbox and label */
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   cursor: pointer;
   visibility: collapse;
 }
@@ -197,7 +206,7 @@ label:hover{
 
   display: inline-block;
   vertical-align: middle;
-  margin-bottom: 20px; /* Add spacing between each checkbox-label pair */
+  margin-bottom: 0px; /* Add spacing between each checkbox-label pair */
   cursor: pointer;
   min-width: 120px; /* Adjust the minimum width as needed */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
