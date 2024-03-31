@@ -134,7 +134,10 @@ label:hover{
   margin-top: 40px;
   background-color: #85e0ff;
 }
-
+.resultimage{
+  max-width: 280px;
+  margin: 0 auto;
+}
 .card-notbootstrap {
   display: flex;
   flex-direction: row;
@@ -145,6 +148,10 @@ label:hover{
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card-notbootstrap.result{
+  flex-direction: column;
 }
 
 .card-left {
@@ -222,7 +229,6 @@ FORM
   
   margin-top: 24px;
   width: 100%;
-  height: 100vh;
   padding: 20px 10px;
 }
 

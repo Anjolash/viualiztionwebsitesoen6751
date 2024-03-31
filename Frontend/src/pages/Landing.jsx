@@ -123,7 +123,3 @@ export default function Landing({ totalVisualizations = 2 }) {
         <h1>LOADING.....</h1>
     );
 }
-
-Landing.propTypes = {
-    totalVisualizations: PropTypes.number.isRequired,
-};

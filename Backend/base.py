@@ -8,7 +8,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5173"}})
+CORS(app)
 
 
 
@@ -23,7 +23,7 @@ def get_image(filename):
 
 @app.route('/runtrain')
 def run_train():
-    categories, values, _ = getPieChartValues()
+    categories, values = getPieChartValues()
     values = [int(x) for x in values]
     jsonstring = '{"labels": ' + json.dumps(categories) + ', "datasets": [ {"label": "# of Predictions", "backgroundColor": ["rgba(75, 192, 192, 0.9)", "rgba(255, 99, 132, 0.9)", "rgba(255, 99, 132, 0.9)"], "data": ' + json.dumps(values) +'} ] }'
     return jsonstring

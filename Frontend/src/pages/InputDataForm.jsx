@@ -34,7 +34,7 @@ export default function InputDataForm() {
     
             const data = await response.json();
             console.log(data);
-            // Process the response data here
+            navigateTo("/Result", {state: { data: data } });
         } catch (error) {
             console.error('Error:', error);
         }
@@ -49,7 +49,8 @@ export default function InputDataForm() {
     }
 
     return (
-        <div>
+        <div className='Landing'>
+            <h1>Patient Details</h1>
             <form id="contact__form" onSubmit={handleSubmit} method="POST" data-netlify="true">
                 <div className="df df-col">
                     <div className="form__item me-3 col">
@@ -92,7 +93,7 @@ export default function InputDataForm() {
                     </div>
                 </div>
                 <div className="button-container">
-                    <button type="submit" className="form-button">Send It My Way</button>
+                    <button type="submit" className="form-button">Get Result</button>
                 </div>
                 
             </form>

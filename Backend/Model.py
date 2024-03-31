@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 
 def getPieChartValues():
-    y_test, y_pred = train()
+    y_test, y_pred, _ = train()
     conf_matrix = confusion_matrix(y_test, y_pred)
 
     # Extracting TP, TN, FP, FN

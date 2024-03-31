@@ -7,6 +7,7 @@ import Welcome from './pages/Welcome'
 import Numericalmatrix from './pages/Numericalmatrix';
 import Interactive from './pages/Interactive';
 import InputDataForm from './pages/InputDataForm';
+import Result from './pages/Result';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/2DVis" element = {<Landing />} />
           <Route path="/Interactive" element = {<Interactive />} />
           <Route path='/DataForm' element = {<InputDataForm /> } />
+          <Route path='/Result' element = {<Result /> } />
       </Routes>
     </Router>
   )
