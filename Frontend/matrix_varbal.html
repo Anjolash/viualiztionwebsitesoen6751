@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix + Verbal info Visualization</title>
+</head>
+<body>
+
+<canvas id="matrixCanvas" width="300" height="300"></canvas>
+
+<script>
+    var matrix = {{ matrix|tojson }};
+    var canvas = document.getElementById('matrixCanvas');
+    var ctx = canvas.getContext('2d');
+
+    var cellSize = canvas.width / matrix.length; // Assuming square matrix and canvas
+
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix[i].length; j++) {
+            var cellValue = matrix[i][j];
+            var alpha = (cellValue * 0.75) + 0.25; // Adjust alpha based on cell value
+            ctx.fillStyle = `rgba(148, 0, 211, ${alpha})`; // Setting the violet color intensity
+            ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize); // Draw the cell
+            
+            // Set the text color (change as needed)
+            ctx.fillStyle = 'white';
+            // Format the cell value to two decimal places for display
+            var text = cellValue.toFixed(2);
+            // Adjust the font size and position as needed
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, j * cellSize + cellSize / 2, i * cellSize + cellSize / 2);
+        }
+    }
+</script>
+
+</body>
+</html>
