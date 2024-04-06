@@ -2,13 +2,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pylab as plt
 import seaborn as sns
+from sklearn.preprocessing import QuantileTransformer
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 
 def getPieChartValues():
-    y_test, y_pred, _ = train()
+    y_test, y_pred = train()
     conf_matrix = confusion_matrix(y_test, y_pred)
 
     # Extracting TP, TN, FP, FN
@@ -34,12 +36,16 @@ def train():
     #datasplitting into train and test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
     classifier = GaussianNB()
     classifier.fit(X_train, y_train)
     y_pred = classifier.predict(X_test)
     correlation_matrix = df.corr()['Outcome'].drop('Outcome')
     features = correlation_matrix.index
-    return y_test, y_pred, classifier
+    return y_test, y_pred
 
 def prepare3DBarData(X, Y, Z, dx, dy, dz, height=600, xlabel="X", ylabel="Y", zlabel="Z", initialCamera=None):
     options = {
