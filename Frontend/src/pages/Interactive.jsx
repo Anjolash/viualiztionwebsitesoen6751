@@ -101,11 +101,14 @@ export default function Interactive() {
                     </select>
                 </div>
             </div>
-            <div className="next">
-                <Link to="/NumMatrix">
-                    <button>Back</button>
-                </Link>
-                <button>Show result</button>
+            <div className="mt-4 decision">
+                    <input placeholder="Doctor's decision"  type="textbox" />
+                    
+            </div>
+            <div className="mt-4 decision">
+                <button >
+                    Submit Doctor's Report
+                </button>
             </div>
         </div>
     );

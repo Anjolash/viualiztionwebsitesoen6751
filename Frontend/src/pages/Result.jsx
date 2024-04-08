@@ -17,7 +17,7 @@ const Result = () => {
             <h1>{data == 0 ? "The patient is not at risk of suffering diabetes" : "The patient is at risk of suffering diabetes"}</h1>
         </div>
         <div className="next">
-            <Link to="/NumMatrix">
+            <Link to="/2DVis">
                 <button>Visualize Confidence Levels</button>
             </Link>
         </div>

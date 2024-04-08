@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types';
-import BarGraph from './BarGraph';
-import PieChart from './PieChart';
-import CircleGraph from './CircleGraph';
+import BarGraph from '../src/pages/BarGraph';
+import PieChart from '../src/pages/PieChart';
+import CircleGraph from '../src/pages/CircleGraph';
 
 export default function Landing({ totalVisualizations = 2 }) {
     const [current, setCurrent] = useState(0);

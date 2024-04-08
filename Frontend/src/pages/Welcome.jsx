@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import logo from '../assets/concordia-logo.webp';
-import Landing from './Landing';
+import Landing from '../../trash/Landing';
 
 export default function Welcome() {
     const [current, setCurrent] = useState(0);

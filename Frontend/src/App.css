@@ -279,3 +279,16 @@ textarea{
   max-width: 200px;
   margin: 0 auto;
 }
+
+.decision{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  
+}
+
+.decision input{
+  max-width: 700px;
+  height: 300px;
+  border-radius: 8px;
+}
