@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom'
 import placeholder from '../assets/placeholdernummatrix.png'
+import PopupWithTextbox from './PopupWithTextbox'
 
 
 export default function TwoDVisWithDescription() {
@@ -15,23 +16,14 @@ export default function TwoDVisWithDescription() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt aliquam, velit natus impedit, accusamus enim fugit soluta nam veniam in expedita excepturi illum cupiditate. Dolores obcaecati consequatur tempora soluta saepe?
                     </div>
                 </div>   
-                <div className="mt-4">
+                <div className="mt-4 next">
                     <Link to = "/3DVis">
                         <button >
                             3D Visualization
                         </button>
                     </Link>
-                </div>
-                <div className="mt-4 decision">
-                    <input placeholder="Doctor's decision"  type="textbox" />
-                    
-                </div>
-                <div className="mt-4 decision">
-                    <button >
-                        Submit
-                    </button>
-                </div>
-                    
+                    <PopupWithTextbox/>
+                </div>                   
             </div>
         </div>
     )

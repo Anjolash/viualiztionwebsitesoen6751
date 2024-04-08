@@ -11,7 +11,8 @@ export default function InputDataForm() {
         age: '',
         diabetesPedigreeFunction: '',
         bmi: '',
-        pregnancies: ''
+        pregnancies: '',
+        pred: 1
     })
 
     const navigateTo =  useNavigate();
@@ -33,8 +34,8 @@ export default function InputDataForm() {
             }
     
             const data = await response.json();
-            console.log(data);
-            navigateTo("/Result", {state: { data: data } });
+            console.log(formData.pred);
+            navigateTo("/Result", {state: { data: data, expert:  formData.pred} });
         } catch (error) {
             console.error('Error:', error);
         }
@@ -91,6 +92,15 @@ export default function InputDataForm() {
                         <label htmlFor="nam">Pregnancies</label>
                         <input type="number" min="0" className="input" name="pregnancies" value={formData.pregnancies} onChange={handleChange}></input>
                     </div>
+                </div>
+                <br />
+                <h2>Expert Analysis</h2>
+                <br />
+                <div className="df df-col">
+                    <select className="inputDropDown" required name="pred" value={formData.pred} onChange={handleChange}>
+                        <option value="1">High Risk</option>
+                        <option value="0">Low Risk</option>
+                    </select>
                 </div>
                 <div className="button-container">
                     <button type="submit" className="form-button">Get Result</button>

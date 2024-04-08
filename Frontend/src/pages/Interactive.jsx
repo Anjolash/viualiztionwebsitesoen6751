@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PieChart from './PieChart';
 import BarGraph from './BarGraph';
 import CircleGraph from './CircleGraph';
+import PopupWithTextbox from './PopupWithTextbox';
 
 export default function Interactive() {
     const [selectedComponent, setSelectedComponent] = useState(null);
@@ -101,14 +102,8 @@ export default function Interactive() {
                     </select>
                 </div>
             </div>
-            <div className="mt-4 decision">
-                    <input placeholder="Doctor's decision"  type="textbox" />
-                    
-            </div>
-            <div className="mt-4 decision">
-                <button >
-                    Submit Doctor's Report
-                </button>
+            <div className="next">
+                <PopupWithTextbox/>
             </div>
         </div>
     );
