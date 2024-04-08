@@ -18,7 +18,9 @@ const Result = () => {
             <br />
             <h1>{data == 0 ? "The patient is not at risk of suffering diabetes" : "The patient is at risk of suffering diabetes"}</h1>
             <br />
-            <h4>Your analysis {data == expert ? "matches" : "does not match"} the model's prediction</h4>
+            <h4 style={{ color: data == expert ? 'lightseagreen' : 'red' }}>
+              Your analysis {data == expert ? 'matches' : 'does not match'} the model's prediction
+            </h4>
         </div>
         <div className="next">
             <Link to="/2DVis">
