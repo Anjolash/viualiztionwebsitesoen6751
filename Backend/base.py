@@ -3,7 +3,7 @@ from flask_cors import CORS
 import json
 import numpy as np
 from Model import getPieChartValues, prepare3DBarData
-from Model import train
+from Model import train, train_simulation
 import numpy as np
 
 
@@ -68,3 +68,11 @@ def plot_data():
 
     plotData = prepare3DBarData(X_flat, Y_flat, Z_flat, dx.flatten(), dy.flatten(), dz)
     return jsonify(plotData)
+
+
+@app.route('/simulation', methods=['POST'])
+def run_simulation():
+    data = request.json
+
+    mean_accuracy, std_dev_accuracy, mean_confidence, std_dev_confidence = train_simulation(data['features'])
+    
