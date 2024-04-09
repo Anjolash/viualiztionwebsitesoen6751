@@ -89,7 +89,7 @@ export default function InputDataForm() {
                         <input type="number" min="0" className="input"  required name="bmi" value={formData.bmi} onChange={handleChange}></input>
                     </div>
                     <div className="form__item me-3 col">
-                        <label htmlFor="nam">Pregnancies</label>
+                        <label htmlFor="nam">Number of Pregnancies</label>
                         <input type="number" min="0" className="input" name="pregnancies" value={formData.pregnancies} onChange={handleChange}></input>
                     </div>
                 </div>
