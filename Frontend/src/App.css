@@ -116,6 +116,13 @@ label:hover{
 .placeholder{
   width: 700px;
 }
+.html3d{
+  width: 900px;
+  height: 700px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+  border-width: 0px;
+  border-style:none ;
+}
 
 .details{
   text-align: center;

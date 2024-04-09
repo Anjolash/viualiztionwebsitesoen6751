@@ -8,7 +8,7 @@ export default function ThreeDVisualization() {
             <div className="Landing">
                 <div className="charts">
                     <figure className='mt-4'>
-                        <img className='placeholder' src={placeholder} alt="" />
+                        <iframe src="/3d.html" title="3D Visualization" className='html3d'></iframe>
                     </figure>
                 </div>   
                 <div className="mt-4 next">
@@ -23,3 +23,4 @@ export default function ThreeDVisualization() {
         </div>
     )
 }
+ 
