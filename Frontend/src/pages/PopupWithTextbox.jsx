@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css'; // Import default popup styles
 
@@ -29,7 +30,10 @@ function PopupWithTextbox() {
             ></textarea>
             <div className="button-container">
               <button onClick={close}>Cancel</button>
-              <button className='button final' type="submit">Submit</button>
+              <Link to="/final" >
+                <button className='button final' type="submit">Submit</button>
+              </Link>
+              
             </div>
           </form>
         </div>

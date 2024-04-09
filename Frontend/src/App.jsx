@@ -11,6 +11,7 @@ import Result from './pages/Result';
 import TwoDVis from './pages/TwoDVis';
 import TwoDVisWithDescription from './pages/TwoDVisWithDescription';
 import ThreeDVisualization from './pages/ThreeDVisualization';
+import ResultsPosted from './pages/ResultsPosted';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Interactive" element = {<Interactive />} />
           <Route path='/DataForm' element = {<InputDataForm /> } />
           <Route path='/Result' element = {<Result /> } />
+          <Route path='/final' element = {<ResultsPosted />} />
       </Routes>
     </Router>
   )
