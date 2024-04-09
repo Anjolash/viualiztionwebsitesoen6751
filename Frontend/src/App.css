@@ -233,10 +233,9 @@ FORM
 
 */
 #contact__form{
-  
   margin-top: 24px;
   width: 100%;
-  padding: 20px 10px;
+  padding: 20px 100px;
 }
 
 .form__item{
@@ -247,7 +246,7 @@ FORM
 
 input,
 textarea{
-  border: none;
+  border: 1px solid #473d47;
   border-radius: 4px;
   opacity: 1;
   background-color: #ffffff;
@@ -271,7 +270,7 @@ textarea{
 }
 
 .col{
-  width: 48%;
+  width: 42%;
 }
 
 .button-container{
@@ -351,4 +350,10 @@ Popup Styling
 }
 .button.final:hover{
   background-color: lightseagreen;
+}
+
+.greentick{
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 20vh;
 }
