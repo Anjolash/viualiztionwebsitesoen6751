@@ -17,7 +17,7 @@ export default function Welcome() {
             <br/>
             <br/>
             <Link to = "/DataForm">
-                <button onClick={() => setCurrent(1)}>Start Survey</button>
+                <button onClick={() => setCurrent(1)}>Enter Patinet Details</button>
             </Link>
             
         </div>
