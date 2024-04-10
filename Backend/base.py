@@ -73,6 +73,5 @@ def plot_data():
 @app.route('/simulation', methods=['POST'])
 def run_simulation():
     data = request.json
-
     mean_accuracy, std_dev_accuracy, mean_confidence, std_dev_confidence = train_simulation(data['features'])
     

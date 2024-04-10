@@ -51,6 +51,7 @@ def train_simulation(arr):
     ##############################
    
     # Separate features and target variable
+    print (arr)
     X = diabetes_data[arr]
     y = diabetes_data['Outcome']
 
@@ -110,18 +111,17 @@ def gradient(mean_confidence):
     plt.tight_layout()
 
 
-    save_path = "../Frontend/public"
+    save_path = "./assets"
 
     filename = "grad.png"
     full_path = os.path.join(save_path, filename)
 
     plt.savefig(full_path)
 
-    plt.show()
 
 
 def bubble(mean_confidence):
-    
+    print(mean_confidence)
     color = 'forestgreen'
 
     fig, ax = plt.subplots(figsize=(5, 5))  
@@ -141,14 +141,13 @@ def bubble(mean_confidence):
 
     plt.tight_layout()
 
-    save_path = "../Frontend/public"
+    save_path = "./assets"
 
     filename = "bubble.png"
     full_path = os.path.join(save_path, filename)
 
     plt.savefig(full_path)
 
-    plt.show()
     
 
 

@@ -1,41 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PieChart from './PieChart';
-import BarGraph from './BarGraph';
 import CircleGraph from './CircleGraph';
 import PopupWithTextbox from './PopupWithTextbox';
+import Bubble from '../../../Backend/assets/bubble.png'
+import Gradient from '../../../Backend/assets/grad.png'
 
 export default function Interactive() {
     const [selectedComponent, setSelectedComponent] = useState(null);
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/runtrain')
-            .then((response) => response.json())
-            .then((json) => {
-                setData(json);
-                console.log(json);
-                if (json) {
-                    setSelectedComponent(<PieChart data={json} />);
-                }
-            })
-            .catch((error) => console.error(error));
+        setSelectedComponent(<h2 className='loading'>Loading......</h2>);
+        runModel();
     }, []);
+    const runModel = () =>{
+        const selectedFeatures = {
+            Glucose: document.getElementById('glucose').checked,
+            Insulin: document.getElementById('insulin').checked,
+            Age: document.getElementById('age').checked,
+            BMI: document.getElementById('bmi').checked,
+            BloodPressure: document.getElementById('bloodPressure').checked,
+            SkinThickness: document.getElementById('skinThickness').checked,
+            DiabetesPedigreeFunction: document.getElementById('diabetes').checked,
+            Pregnancies: document.getElementById('pregnancies').checked,
+        };
+
+        // Filter out the unchecked features and get only their names
+        const selectedFeatureNames = Object.entries(selectedFeatures)
+            .filter(([key, value]) => value)
+            .map(([key, value]) => key);
+
+        // Send a POST request with the selected feature names
+        fetch('http://127.0.0.1:5000/simulation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ features: selectedFeatureNames }),
+        })
+        .then(() => {
+            console.log("test")
+            setSelectedComponent(<img className='placeholder' src={Bubble} alt="" />)
+            document.getElementById('selection').value = 'Bubble Graph';
+        })
+        .catch((error) => console.error(error));
+    }
+    const handleUpdateGraph = (e) => {
+        runModel();
+    }
     // Handler to change the selected component based on dropdown value
     const handleDropdownChange = (e) => {
         const selectedValue = e.target.value;
         switch (selectedValue) {
-            case 'Pie Chart':
-                setSelectedComponent(<PieChart data={data} />);
+            case 'Bubble Graph':
+                setSelectedComponent(<img className='placeholder' src={Bubble} alt="" />);
                 break;
-            case 'Bar Graph':
-                setSelectedComponent(<BarGraph data={data} />);
-                break;
-            case 'Circle Graph':
-                setSelectedComponent(<CircleGraph data={data} />);
+            case 'Gradient Graph':
+                setSelectedComponent(<img className='placeholder' src={Gradient} alt="" />);
                 break;
             default:
-                setSelectedComponent(<PieChart data={data} />);
+                setSelectedComponent(<h2>Loading</h2>);
                 break;
         }
     };
@@ -92,17 +115,16 @@ export default function Interactive() {
                             <label htmlFor="pregnancies">Number of Pregnancies</label>
                         </div>
                     </div>
-                    <button className='button update'>Update Graph</button>
+                    <button className='button update' onClick={handleUpdateGraph}>Update Graph</button>
                     <br />
                     <br />
                     <br />
                     <br />
                     <h3>Type of Visualization Graph</h3>
                     <br />
-                    <select onChange={handleDropdownChange}>
-                        <option value="Pie Chart">Pie Chart</option>
-                        <option value="Bar Graph">Bar Graph</option>
-                        <option value="Circle Graph">Circle Graph</option>
+                    <select id='selection' onChange={handleDropdownChange}>
+                        <option value="Bubble Graph">Bubble Graph</option>
+                        <option value="Gradient Graph">Gradient Graph</option>
                     </select>
                 </div>
             </div>
