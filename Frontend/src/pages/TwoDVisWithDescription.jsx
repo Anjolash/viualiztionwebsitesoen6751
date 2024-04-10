@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom'
-import placeholder from '../assets/placeholdernummatrix.png'
+import placeholder from '../assets/placeholdernummatrixinfo.png'
 import PopupWithTextbox from './PopupWithTextbox'
 
 
