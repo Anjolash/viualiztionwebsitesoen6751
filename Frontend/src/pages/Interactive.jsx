@@ -54,38 +54,42 @@ export default function Interactive() {
                     <h3>Please select the features:</h3>
                     <div className="checkbox-row">
                         <div>
-                            <input type="checkbox" id="checkbox1" />
-                            <label htmlFor="checkbox1">Feature 1</label>
+                            <input type="checkbox" id="glucose" defaultChecked/>
+                            <label htmlFor="glucose">Glucose</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="checkbox2" />
-                            <label htmlFor="checkbox2">Feature 2</label>
-                        </div>
-                    </div>
-                    <div className="checkbox-row">
-                        <div>
-                            <input type="checkbox" id="checkbox3" />
-                            <label htmlFor="checkbox3">Feature 3</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="checkbox4" />
-                            <label htmlFor="checkbox4">Feature 4</label>
+                            <input type="checkbox" id="insulin" defaultChecked/>
+                            <label htmlFor="insulin">Insulin</label>
                         </div>
                     </div>
                     <div className="checkbox-row">
                         <div>
-                            <input type="checkbox" id="checkbox5" />
-                            <label htmlFor="checkbox5">Feature 5</label>
+                            <input type="checkbox" id="age" defaultChecked/>
+                            <label htmlFor="age">Age</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="checkbox6" />
-                            <label htmlFor="checkbox6">Feature 6</label>
+                            <input type="checkbox" id="bmi" defaultChecked/>
+                            <label htmlFor="bmi">BMI</label>
+                        </div>
+                    </div>
+                    <div className="checkbox-row">
+                        <div>
+                            <input type="checkbox" id="bloodPressure" defaultChecked/>
+                            <label htmlFor="bloodPressure">Blood Pressure</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="skinThickness" defaultChecked/>
+                            <label htmlFor="skinThickness">Skin Thickness</label>
                         </div>
                     </div>
                     <div className="checkbox-row">    
                         <div>
-                            <input type="checkbox" id="checkbox7" />
-                            <label htmlFor="checkbox7">Feature 7</label>
+                            <input type="checkbox" id="diabetes" defaultChecked/>
+                            <label htmlFor="diabetes">Diabetes Pedigree</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="pregnancies" defaultChecked/>
+                            <label htmlFor="pregnancies">Number of Pregnancies</label>
                         </div>
                     </div>
                     <button className='button update'>Update Graph</button>
