@@ -96,8 +96,8 @@
     function getColor(height) {
         var min = Math.min(...matrix.flat());
         var max = Math.max(...matrix.flat());
-        var t = (height - min) / (max - min);
-        var color = new THREE.Color().lerpColors(new THREE.Color(0xFF0000), new THREE.Color(0x4BC0C0), t);
+        var t = (height - min) / (max - min) - 0.2;
+        var color = new THREE.Color().lerpColors(new THREE.Color(0x4BC0C0), new THREE.Color(0xFF0000), t);
         return color;
     }
 </script>
