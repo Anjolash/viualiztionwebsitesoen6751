@@ -270,7 +270,9 @@ textarea{
 .me-3 {
   margin-left: 20px;
 }
-
+.placeholder.gradient{
+  margin-top: 300px;
+}
 .col{
   width: 42%;
 }

@@ -38,9 +38,10 @@ export default function Interactive() {
             body: JSON.stringify({ features: selectedFeatureNames }),
         })
         .then(() => {
-            console.log("test")
-            setSelectedComponent(<img className='placeholder' src={Bubble} alt="" />)
-            document.getElementById('selection').value = 'Bubble Graph';
+            setTimeout(() => {
+                document.getElementById('selection').value = 'Bubble Graph';
+                setSelectedComponent(<img className='placeholder' src={Bubble} alt="Image" />);
+            }, 1000); // Wait for 1000 milliseconds (1 second)
         })
         .catch((error) => console.error(error));
     }
@@ -55,7 +56,7 @@ export default function Interactive() {
                 setSelectedComponent(<img className='placeholder' src={Bubble} alt="" />);
                 break;
             case 'Gradient Graph':
-                setSelectedComponent(<img className='placeholder' src={Gradient} alt="" />);
+                setSelectedComponent(<img className='placeholder gradient' src={Gradient} alt="" />);
                 break;
             default:
                 setSelectedComponent(<h2>Loading</h2>);

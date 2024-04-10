@@ -122,7 +122,7 @@ def gradient(mean_confidence):
 
 def bubble(mean_confidence):
     print(mean_confidence)
-    color = 'forestgreen'
+    color = '#4BC0C0'
 
     fig, ax = plt.subplots(figsize=(5, 5))  
     fig.patch.set_facecolor('white')
